@@ -1,9 +1,3 @@
-// Este código está pensando para que lo modifiquen y lo mejoren tanto como gusten.
-// El carrito está implementado sin código css
-// Faltaría imprimir el precio total y agregar un botón que permita realizar la compra del carrito.
-// El botón para comprar el carrito debería mostrar un mensaje al usuario confirmando la compra
-// y vaciar el carrito
-
 const productosIniciales = [
   {
     id: 1,
