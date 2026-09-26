@@ -57,9 +57,21 @@ const productosIniciales = [
   },
 ];
 
-let productos = JSON.parse(localStorage.getItem("productos")) ?? productosIniciales;
+function obtenerCarritoDelStorage() {
+  try {
+    let carritoGuardado = localStorage.getItem("carrito");
 
-let carrito = JSON.parse(localStorage.getItem("carrito")) ?? [];
+    return carritoGuardado ? JSON.parse(carritoGuardado) : [];
+
+  } catch (error) {
+    console.error("No se pudieron obtener los datos del carrito");
+
+    return [];
+
+  } finally {
+    console.log("Fin del bloque try-catch");
+  }
+}
 
 function guardarProductos() {
   localStorage.setItem("productos", JSON.stringify(productos));
