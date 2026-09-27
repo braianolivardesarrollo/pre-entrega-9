@@ -73,6 +73,10 @@ function obtenerCarritoDelStorage() {
   }
 }
 
+let carrito = obtenerCarritoDelStorage();
+
+let productos = JSON.parse(localStorage.getItem("productos")) ?? productosIniciales;
+
 function guardarProductos() {
   localStorage.setItem("productos", JSON.stringify(productos));
 }
@@ -197,9 +201,9 @@ localStorage.setItem("carrito", JSON.stringify(carrito));
   contenedorCarrito.appendChild(mensajeCompra);
 
 
-  setTimeout(() => {
-    mensajeCarrito.textContent = "";
-  }, 2000);
+ setTimeout(() => {
+  mensajeCompra.textContent = "";
+}, 2000);
 });
 }
 
@@ -261,3 +265,11 @@ function obtenerProductoDelForm() {
 }
 
 obtenerProductoDelForm();
+
+setTimeout(() => {
+  Swal.fire({
+    title: "¡Bienvenido!",
+    text: "Recordá revisar tu carrito antes de finalizar la compra.",
+    icon: "info",
+  });
+}, 3000);
